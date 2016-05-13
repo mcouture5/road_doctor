@@ -184,6 +184,11 @@ a.active-link {
     margin-left: 25px;
 }
 
+.large {
+    width: auto;
+    margin-right: 25px;
+}
+
 .bubble-callout {
     border-radius: 4px;
     background-color: #fff;
@@ -274,4 +279,36 @@ a.active-link {
 
 .advance-list {
     cursor: pointer;
+}
+
+.worst-roads {
+    font-size: 16px;
+}
+
+.worst-roads li{
+    padding-left: 15px;
+    padding-bottom: 25px;
+}
+
+.deep-padding {
+    padding-bottom: 35px;
+}
+
+.offender {
+    padding-bottom: 7px;
+}
+
+.suggestion {
+    color: #6eba5a;
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+.no-alternates {
+    color: #eb1d2a;
+}
+
+.modal-text {
+    color: #333333;
+    padding-bottom: 7px;
 }

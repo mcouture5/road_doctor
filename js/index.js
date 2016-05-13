@@ -1,8 +1,9 @@
 var panelOpen = true;
 var trafficAreaRoads = [];
 var stateOutlines = [];
-var map, directionsService, directionsDisplay, startMarker, endMarker, start, end;
+var map, directionsService, directionsDisplay, startMarker, endMarker, start, end, geocoder;
 var timerRunning = false;
+var infos = {};
 
 (function(){
 
@@ -56,6 +57,18 @@ var timerRunning = false;
 		$('#whosDriving').addClass('active-link');
 	});
 
+	$('#requestRerouting').click(function (){
+		$('.info-panel').hide();
+		$('.link').removeClass('active-link');
+		closePanel(function (){
+			$('#requestReroutingPnl').fadeIn();
+			hideRoads();
+			hideStates();
+			destroyRouteService();
+		});
+		$('#requestRerouting').addClass('active-link');
+	});
+
 	function showStates (){
 		stateOutlines.forEach(function (state){
 			state.setMap(map);
@@ -102,6 +115,12 @@ var timerRunning = false;
 		$('.info-panel').hide();
 		$('.link').removeClass('active-link');
 	};
+
+	$('.send-request').click(function (){
+        $('#confirmModal').modal({
+            backdrop: 'static'
+        });
+	});
 }())
 
 function initializeRouteService(){
@@ -125,6 +144,7 @@ function calcRoute() {
         travelMode: google.maps.TravelMode.DRIVING
     };
     directionsService.route(request, function (response, status) {
+    	var startRoute, endRoute;
         if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
         }
@@ -163,8 +183,11 @@ function drawMap(){
 		minZoom: 4,
 		maxZoom: 16,
 		center: new google.maps.LatLng(39.201165, -77.224011),
-		disableDefaultUI: true
+		disableDefaultUI: true,
+		disableDoubleClickZoom: true
 	});
+
+	geocoder = new google.maps.Geocoder;
 
 	start = new google.maps.LatLng(39.07964100697691, -76.9009494781494);
 	end = new google.maps.LatLng(39.15595517271457, -76.83228492736816);
@@ -214,17 +237,38 @@ function drawMap(){
         getFrequencies();
     });
 
+	var lineSymbol = {
+	    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+	    scale: 1,
+	    strokeColor: '#000'
+	  };
+
 	$.getJSON( "/assets/roads/roads.json", function( data ) {
 		trafficAreaRoads = [];
 		$.each( data, function( key, val ) {
+			var path = data[key].path;
+			if(data[key].road == 'i270nb') {
+				path = path.concat().reverse();
+			}
 			var route = new google.maps.Polyline({
-				path: data[key].path,
+				path: path,
 				geodesic: true,
 				strokeColor: '#FF0000',
 				strokeOpacity: 1.0,
-				strokeWeight: 4
+				strokeWeight: 4,
+				icons: [{
+			      icon: lineSymbol,
+			      offset: '100%'
+			    }]
 			});
 			trafficAreaRoads.push(route);
+		    var count = 0, max = path.length;
+			window.setInterval(function() {
+				count = (count + 1) % max;
+				var icons = route.get('icons');
+				icons[0].offset = (count / (max / 100)) + '%';
+				route.set('icons', icons);
+			}, 100 - (data[key].health * 15));
 		});
 	});
 

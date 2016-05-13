@@ -191,53 +191,53 @@
 					<div class="info-small">Frequency is the number of trips where the vehicle has passed through any of the waypoints within the route.</div>
 				</div>
 				<div class="info-content">
-					<div class="info-title">
-						Route to Route
+					<div class="info-title route">
+						Custom Route
 					</div>
 					<br/>
-					<ol class="info-list vehicles">
-						<li>
-							<div>
-								<strong>Vehicle #4208</strong>
-								<div>5 trips</div>
-							</div>
-						</li>
-						<li>
-							<div>
-								<strong>Vehicle #53</strong>
-								<div>5 trips</div>
-							</div>
-						</li>
-						<li>
-							<div>
-								<strong>Vehicle #778</strong>
-								<div>5 trips</div>
-							</div>
-						</li>
-						<li>
-							<div>
-								<strong>Vehicle #2524</strong>
-								<div>5 trips</div>
-							</div>
-						</li>
-						<li>
-							<div>
-								<strong>Vehicle #544</strong>
-								<div>5 trips</div>
-							</div>
-						</li>
-						<li>
-							<div>
-								<strong>Vehicle #43</strong>
-								<div>5 trips</div>
-							</div>
-						</li>
-					</ol>
+					<ol class="info-list vehicles"></ol>
 					<div class='info-sub-title advance-list'>
 						See the next 6 vehicles...
 					</div>
 				</div>
 	      	</div>
+	      	<div class="info-panel large auto-pointers" id="requestReroutingPnl">
+	      		<div class="info-title deep-padding">
+	      			Frequent Offenders
+	      		</div>
+	      		<ol class="worst-roads">
+	      			<li>
+	      				<div class='offender'>Vehicle <strong>#4280</strong>: 16 trips per day on <strong>I-270</strong> Northbound</div>
+	      				<div class='btn btn-primary send-request'>Request Reroute</div><span class='suggestion'>Suggested route: MD-355 Northbound</span>
+	      			</li>
+	      			<li>
+	      				<div class='offender'>Vehicle <strong>#424</strong>: 18 trips per day on <strong>I-97</strong> Southbound</div>
+	      				<span class='suggestion no-alternates'>No alternate routes</span>
+	      			</li>
+	      			<li>
+	      				<div class='offender'>Vehicle <strong>#967</strong>: 5 trips per day on <strong>I-695</strong> Westbound</div>
+	      				<div class='btn btn-primary send-request'>Request Reroute</div><span class='suggestion'>Suggested route: I-83 Southbound</span>
+	      			</li>
+	      			<li>
+	      				<div class='offender'>Vehicle <strong>#2317</strong>: 7 trips per day on <strong>Route-50</strong> Eastbound</div>
+	      				<div class='btn btn-primary send-request'>Request Reroute</div><span class='suggestion'>Suggested route: MD-214 Eastbound</span>
+	      			</li>
+	      			<li>
+	      				<div class='offender'>Vehicle <strong>#75</strong>: 11 trips per day on <strong>I-270</strong> Spur Northbound</div>
+	      				<span class='suggestion no-alternates'>No alternate routes</span>
+	      			</li>
+	      		</ol>
+	      	</div>
+	      	<div id="confirmModal" class="modal fade auto-pointers" role="dialog">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+					 	<div class="modal-body text-center">
+					 		<div class="modal-text">An email has been sent to the vehicle's owner with the suggested route.</div>
+					 		<button class="btn btn-primary" type="button" data-dismiss="modal">Okay!</button>
+					 	</div>
+					</div>
+				</div>
+			</div>
       	</div>
 	</body>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBcFqUSgICNaEdqJtCQov5-ppoly8xjGQ&libraries=visualization&callback=drawMap", async, defer></script>
