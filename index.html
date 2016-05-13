@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+	<title>Road Doctor</title>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+    	<link href="css/style.css" rel="stylesheet">
+	</head>
+	<body>
+  		<div id="mapContainer">
+  			<div id="map"></div>
+  		</div>
+  		<div class="content no-pointers">
+	  		<div class="header-panel auto-pointers">
+	  			<div class="header-label">
+	      			<div class="header-label-text">ROAD DOCTOR <img class="header-label-image" src="/assets/images/doc.png"></div>
+	      		</div>
+		      	<div class='header-info'>
+		      		<p>Freight traffic can do some of the worst damage to your roads, exposing pavement to excessive weight at high frequencies along established routes. Road Doctor keeps tabs on these freight routes and when roads last received maintenance and lets you know which sections of road may require more attention or upkeep over time.</p>
+	      		</div>
+	  			<ul class="links">
+	  				<li><a href="#" class="link" id="stateHealth">State Health</a></li>
+	  				<li><a href="#" class="link" id="highestTraffic">Highest Traffic Areas</a></li>
+	  				<li><a href="#" class="link" id="whosDriving">Who's Driving where</a></li>
+	  				<li><a href="#" class="link" id="requestRerouting">Request Rerouting</a></li>
+	  			</ul>
+	  			<div class="close-button">
+	  				<div class="close-button-icon-left"></div>
+	  				<div class="close-button-icon-right"></div>
+	  			</div>
+	      	</div>
+	      	<div class="info-panel auto-pointers" id="stateHealthPnl">
+	      		<div class="bubble-callout">
+	      			This is your states overall road health. Click a road segment to see its status on an individual level.
+	      		</div>   			
+      			<svg class="callout-anchor" width="19" height="14">
+      				<path d="M 0 0 L 19 0 L 9 14 L 0 0 Z" fill="white">
+				</svg>
+				<div class="doc-info clearfix">
+					<img src="/assets/images/doc.png" class="doc-info-image">
+					<div class="info-small">Overall health is calculated by the frequency of freight travel over roads vs the last scheduled maintenance.</div>
+				</div>
+				<div class='info-content'>
+					<div class="info-title">
+						Maryland Health
+					</div>
+					<div class="hearts">
+						<img src="/assets/images/heart.svg" width="40" height="36">
+						<img src="/assets/images/heart.svg" width="40" height="36">
+						<img src="/assets/images/heart.svg" width="40" height="36">
+						<img src="/assets/images/heart-empty.svg" width="40" height="36">
+						<img src="/assets/images/heart-empty.svg" width="40" height="36">
+					</div>
+					<br/>
+					<div class='info-sub-title'>
+						Roads in <strong>good</strong> condition
+					</div>
+					<div class="health">
+						<div class="health-line" style="width: 49%;"></div>
+						49%
+					</div>
+					<div class='info-sub-title'>
+						Roads in <strong>fair</strong> condition
+					</div>
+					<div class="health">
+						<div class="health-line" style="width: 20%;"></div>
+						20%
+					</div>
+					<div class='info-sub-title'>
+						Roads in <strong>poor</strong> condition
+					</div>
+					<div class="health">
+						<div class="health-line" style="width: 31%;"></div>
+						31%
+					</div>
+					<br/>
+					<div class="infographic clearfix">
+						<img src="/assets/images/truck.png">
+						<div class="infographic-text">Maryland sees <strong>15000</strong> freight trucks daily</div>
+					</div>
+				</div>
+	      	</div>
+	      	<div class="info-panel auto-pointers" id="highestTrafficPnl">
+	      		<div class="bubble-callout">
+	      			These are the road segments that experience the most freight traffic on a day to day basis.
+	      		</div>   			
+      			<svg class="callout-anchor" width="19" height="14">
+      				<path d="M 0 0 L 19 0 L 9 14 L 0 0 Z" fill="white">
+				</svg>
+				<div class="doc-info clearfix">
+					<img src="/assets/images/doc.png" class="doc-info-image">
+					<div class="info-small">Overall health is calculated by the frequency of freight travel over roads vs the last scheduled maintenance.</div>
+				</div>
+				<div class='info-content'>
+					<ol class="info-list">
+						<li>
+							<div>
+								<strong>I-95</strong> Southbound
+								<div class="hearts">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+								</div>
+								<div class="list-line"></div>
+							</div>
+						</li>
+						<li>
+							<div>
+								<strong>I-270</strong> Northbound
+								<div class="hearts">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+								</div>
+								<div class="list-line"></div>
+							</div>
+						</li>
+						<li>
+							<div>
+								<strong>Route 50</strong> Eastbound
+								<div class="hearts">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+								</div>
+								<div class="list-line"></div>
+							</div>
+						</li>
+						<li>
+							<div>
+								<strong>I-695</strong> Westbound
+								<div class="hearts">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+								</div>
+								<div class="list-line"></div>
+							</div>
+						</li>
+						<li>
+							<div>
+								<strong>I-270 Spur</strong> Northbound
+								<div class="hearts">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+								</div>
+								<div class="list-line"></div>
+							</div>
+						</li>
+						<li>
+							<div>
+								<strong>I-97</strong> Southbound
+								<div class="hearts">
+									<img src="/assets/images/heart.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+									<img src="/assets/images/heart-empty.svg" width="20" height="18">
+								</div>
+								<div class="list-line"></div>
+							</div>
+						</li>
+					</ol>
+					<div class='info-sub-title advance-list'>
+						See the next 6 roads...
+					</div>
+				</div>
+	      	</div>
+	      	<div class="info-panel auto-pointers" id="whosDrivingPnl">
+	      		<div class="bubble-callout">
+	      			Create a route to see what vehicles are frequenting it the most.
+	      		</div>   			
+      			<svg class="callout-anchor" width="19" height="14">
+      				<path d="M 0 0 L 19 0 L 9 14 L 0 0 Z" fill="white">
+				</svg>
+				<div class="doc-info clearfix">
+					<img src="/assets/images/doc.png" class="doc-info-image">
+					<div class="info-small">Frequency is the number of trips where the vehicle has passed through any of the waypoints within the route.</div>
+				</div>
+				<div class="info-content">
+					<div class="info-title">
+						Route to Route
+					</div>
+					<br/>
+					<ol class="info-list vehicles">
+						<li>
+							<div>
+								<strong>Vehicle #4208</strong>
+								<div>5 trips</div>
+							</div>
+						</li>
+						<li>
+							<div>
+								<strong>Vehicle #53</strong>
+								<div>5 trips</div>
+							</div>
+						</li>
+						<li>
+							<div>
+								<strong>Vehicle #778</strong>
+								<div>5 trips</div>
+							</div>
+						</li>
+						<li>
+							<div>
+								<strong>Vehicle #2524</strong>
+								<div>5 trips</div>
+							</div>
+						</li>
+						<li>
+							<div>
+								<strong>Vehicle #544</strong>
+								<div>5 trips</div>
+							</div>
+						</li>
+						<li>
+							<div>
+								<strong>Vehicle #43</strong>
+								<div>5 trips</div>
+							</div>
+						</li>
+					</ol>
+					<div class='info-sub-title advance-list'>
+						See the next 6 vehicles...
+					</div>
+				</div>
+	      	</div>
+      	</div>
+	</body>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBcFqUSgICNaEdqJtCQov5-ppoly8xjGQ&libraries=visualization&callback=drawMap", async, defer></script>
+	<script type="text/javascript" src="js/libs/jquery-1.12.0.min.js"></script>
+    <script src="js/libs/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+</html>
